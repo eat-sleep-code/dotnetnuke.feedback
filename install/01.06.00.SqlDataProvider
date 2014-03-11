@@ -1,0 +1,113 @@
+﻿ALTER TABLE {databaseOwner}{objectQualifier}donein_feedback ADD 
+vch_account_number [VARCHAR] (1024) DEFAULT '',
+vch_address_street_01 [VARCHAR] (1024) DEFAULT '',
+vch_address_street_02 [VARCHAR] (1024) DEFAULT '',
+vch_address_city [VARCHAR] (1024) DEFAULT '',
+int_address_state_province [INT] DEFAULT 0,
+vch_address_state_province  [VARCHAR] (1024) DEFAULT '',
+vch_address_zipcode [VARCHAR] (1024) DEFAULT '',
+int_address_country [INT] DEFAULT 0,
+vch_address_country [VARCHAR] (1024) DEFAULT '',
+vch_phone [VARCHAR] (64)DEFAULT '',
+vch_fax [VARCHAR] (64) DEFAULT '',
+vch_url [VARCHAR] (1024) DEFAULT ''
+GO
+
+
+
+if exists (select * from {databaseOwner}{objectQualifier}sysobjects where id = object_id(N'{databaseOwner}{objectQualifier}donein_feedback_CUD') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}{objectQualifier}donein_feedback_CUD
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+CREATE PROCEDURE {databaseOwner}{objectQualifier}donein_feedback_CUD
+(
+	@int_id INTEGER,
+	@vch_sender VARCHAR(1024) = '',
+	@vch_recipient VARCHAR(1024) = '',
+	@int_subject INTEGER = 0,
+	@vch_subject VARCHAR(1024) = '',
+	@vch_message VARCHAR(1024) = '',
+	@vch_account_number VARCHAR(1024) = '',
+	@vch_address_street_01 VARCHAR(1024) = '',
+	@vch_address_street_02 VARCHAR(1024) = '',
+	@vch_address_city VARCHAR(1024) = '',
+	@int_address_state_province INTEGER = 0,
+	@vch_address_state_province VARCHAR(1024) = '',
+	@vch_address_zipcode VARCHAR(1024) = '',
+	@int_address_country INTEGER = 0,
+	@vch_address_country VARCHAR(1024) = '',
+	@vch_phone VARCHAR(64) = '',
+	@vch_fax VARCHAR(64) = '',
+	@vch_url VARCHAR(1024) = '',
+	@vch_referrer VARCHAR(1024) = '',
+	@int_module INTEGER = 0,
+	@int_author INTEGER = 0
+)
+AS
+
+-- CREATE
+IF @int_ID = 0
+BEGIN
+	INSERT INTO {databaseOwner}{objectQualifier}donein_feedback(vch_sender, vch_recipient, int_subject, vch_subject, vch_message, vch_account_number, vch_address_street_01, vch_address_street_02, vch_address_city, int_address_state_province, vch_address_state_province, vch_address_zipcode, int_address_country, vch_address_country, vch_phone, vch_fax, vch_url, vch_referrer, int_module, int_author)
+	VALUES (@vch_sender, @vch_recipient, @int_subject, @vch_subject, @vch_message, @vch_account_number, @vch_address_street_01, @vch_address_street_02, @vch_address_city, @int_address_state_province, @vch_address_state_province, @vch_address_zipcode, @int_address_country, @vch_address_country, @vch_phone, @vch_fax, @vch_url, @vch_referrer, @int_module, @int_author)
+
+	SELECT SCOPE_IDENTITY()
+END
+
+-- UPDATE
+IF @int_ID > 0
+BEGIN
+	UPDATE
+		{databaseOwner}{objectQualifier}donein_feedback
+	SET
+		vch_sender = @vch_sender,
+		vch_recipient = @vch_recipient,
+		int_subject = @int_subject,
+		vch_subject = @vch_subject,
+		vch_message = @vch_message,
+		vch_account_number = @vch_account_number,
+		vch_address_street_01 = @vch_address_street_01,
+		vch_address_street_02 = @vch_address_street_02,
+		vch_address_city = @vch_address_city,
+		int_address_state_province = @int_address_state_province,
+		vch_address_state_province = @vch_address_state_province,
+		vch_address_zipcode = @vch_address_zipcode,
+		int_address_country = @int_address_country,
+		vch_address_country = @vch_address_country,
+		vch_phone = @vch_phone,
+		vch_fax = @vch_fax,
+		vch_url = @vch_url,
+		vch_referrer = @vch_referrer,
+		int_module = @int_module,
+		int_author = @int_author
+	WHERE 
+		ID = @int_ID
+
+	SELECT @int_ID
+END
+
+-- DELETE
+IF @int_ID < 0
+BEGIN
+	DELETE
+	FROM
+		{databaseOwner}{objectQualifier}donein_feedback
+	WHERE
+		ID = (@int_ID * -1)
+END
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+
+
+
+
+

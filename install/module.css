@@ -1,0 +1,41 @@
+﻿/* =============================================================== */
+/* FEEDBACK CSS CLASSES                                            */
+/* =============================================================== */
+
+.donein_feedback 
+{
+	color: #000000; 
+	font-size:9pt;
+	font-family: Arial, Sans-Serif; 
+	white-space: nowrap;
+	text-align: left;
+}
+
+.donein_feedback IMG 
+{
+	border: 0px;
+	vertical-align: middle;
+}
+
+.donein_feedback_message 
+{
+	color: #DD0000;
+	font-weight: bold;
+	text-align: justify;
+}
+
+.donein_feedback_form_text_light
+{
+	color: #BBBBBB;
+}
+
+.donein_feedback_form_text_normal
+{
+	color: inherit;
+}
+
+.donein_feedback .divider, .divider
+{
+	font-weight: bold;
+}
+

@@ -1,0 +1,391 @@
+﻿if exists (select * from {databaseOwner}{objectQualifier}sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}donein_feedback_update_trigger]') and OBJECTPROPERTY(id, N'IsTrigger') = 1)
+drop trigger {databaseOwner}[{objectQualifier}donein_feedback_update_trigger]
+GO
+
+if exists (select * from {databaseOwner}{objectQualifier}sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}donein_feedback_subject_update_trigger]') and OBJECTPROPERTY(id, N'IsTrigger') = 1)
+drop trigger {databaseOwner}[{objectQualifier}donein_feedback_subject_update_trigger]
+GO
+
+if exists (select * from {databaseOwner}{objectQualifier}sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}donein_feedback_subject_R]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}donein_feedback_subject_R]
+GO
+
+if exists (select * from {databaseOwner}{objectQualifier}sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}donein_feedback_subject_CUD]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}donein_feedback_subject_CUD]
+GO
+
+if exists (select * from {databaseOwner}{objectQualifier}sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}donein_feedback_R]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}donein_feedback_R]
+GO
+
+if exists (select * from {databaseOwner}{objectQualifier}sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}donein_feedback_CUD]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}donein_feedback_CUD]
+GO
+
+if exists (select * from {databaseOwner}{objectQualifier}sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}donein_feedback]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table {databaseOwner}[{objectQualifier}donein_feedback]
+GO
+
+if exists (select * from {databaseOwner}{objectQualifier}sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}donein_feedback_subject]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table {databaseOwner}[{objectQualifier}donein_feedback_subject]
+GO
+
+CREATE TABLE {databaseOwner}{objectQualifier}donein_feedback (
+	[ID] [int] IDENTITY (1, 1) NOT NULL ,
+	[vch_sender] [varchar] (256) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL ,
+	[vch_recipient] [varchar] (1024) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL ,
+	[int_subject] [int] NOT NULL ,
+	[vch_subject] [varchar] (256) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL ,
+	[vch_message] [varchar] (1024) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL ,
+	[vch_referrer] [varchar] (1024) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL ,
+	[int_module] [int] NOT NULL ,
+	[int_author] [int] NOT NULL ,
+	[date_audit_created] [datetime] NOT NULL ,
+	[date_audit_modified] [datetime] NOT NULL 
+) ON [PRIMARY]
+GO
+
+CREATE TABLE {databaseOwner}{objectQualifier}donein_feedback_subject (
+	[ID] [int] IDENTITY (1, 1) NOT NULL ,
+	[vch_subject] [varchar] (256) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL ,
+	[vch_recipient] [varchar] (256) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL ,
+	[vch_success_message] [varchar] (1024) COLLATE SQL_Latin1_General_CP1_CI_AS NOT NULL ,
+	[int_module] [int] NOT NULL ,
+	[int_author] [int] NOT NULL ,
+	[date_audit_created] [datetime] NOT NULL ,
+	[date_audit_modified] [datetime] NOT NULL 
+) ON [PRIMARY]
+GO
+
+ALTER TABLE {databaseOwner}{objectQualifier}donein_feedback WITH NOCHECK ADD 
+	CONSTRAINT [PK_donein_feedback] PRIMARY KEY  CLUSTERED 
+	(
+		[ID]
+	)  ON [PRIMARY] 
+GO
+
+ALTER TABLE {databaseOwner}{objectQualifier}donein_feedback_subject WITH NOCHECK ADD 
+	CONSTRAINT [PK_donein_feedback_subject] PRIMARY KEY  CLUSTERED 
+	(
+		[ID]
+	)  ON [PRIMARY] 
+GO
+
+ALTER TABLE {databaseOwner}{objectQualifier}donein_feedback ADD 
+	CONSTRAINT [DF_donein_feedback_int_subject] DEFAULT (0) FOR [int_subject],
+	CONSTRAINT [DF_donein_feedback_int_module] DEFAULT (0) FOR [int_module],
+	CONSTRAINT [DF_donein_feedback_int_author] DEFAULT (0) FOR [int_author],
+	CONSTRAINT [DF_donein_feedback_date_audit_created] DEFAULT (getdate()) FOR [date_audit_created],
+	CONSTRAINT [DF_donein_feedback_date_audit_modified] DEFAULT (getdate()) FOR [date_audit_modified]
+GO
+
+ALTER TABLE {databaseOwner}{objectQualifier}donein_feedback_subject ADD 
+	CONSTRAINT [DF_donein_feedback_subject_int_module] DEFAULT (0) FOR [int_module],
+	CONSTRAINT [DF_donein_feedback_subject_int_author] DEFAULT (0) FOR [int_author],
+	CONSTRAINT [DF_donein_feedback_subject_date_audit_created] DEFAULT (getdate()) FOR [date_audit_created],
+	CONSTRAINT [DF_donein_feedback_subject_date_audit_modified] DEFAULT (getdate()) FOR [date_audit_modified]
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+CREATE PROCEDURE {databaseOwner}{objectQualifier}donein_feedback_subject_R
+(
+	@int_ID As Integer,
+	@int_module As Integer = 0
+)
+AS
+
+IF @int_ID > 0
+BEGIN
+	SELECT 
+		TOP 1 * 
+	FROM
+		{databaseOwner}{objectQualifier}donein_feedback_subject
+	WHERE 
+		ID = @int_ID
+END
+
+ELSE
+BEGIN
+	IF @int_module > 0
+	BEGIN
+		SELECT 
+			* 
+		FROM
+			{databaseOwner}{objectQualifier}donein_feedback_subject
+		WHERE
+			int_module = @int_module
+			OR
+			int_module = 0
+		ORDER BY 
+			vch_subject
+	END
+
+	ELSE
+	BEGIN
+		SELECT 
+			* 
+		FROM
+			{databaseOwner}{objectQualifier}donein_feedback_subject
+		ORDER BY 
+			vch_subject
+	END
+END
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+CREATE PROCEDURE {databaseOwner}{objectQualifier}donein_feedback_subject_CUD
+(
+	@int_id INTEGER,
+	@vch_subject VARCHAR(1024) = '',
+	@vch_recipient VARCHAR(1024) = '',
+	@vch_success_message VARCHAR(1024) = '',
+	@int_module INTEGER = 0,
+	@int_author INTEGER = 0
+)
+AS
+
+-- CREATE
+IF @int_ID = 0
+BEGIN
+	INSERT INTO  {databaseOwner}{objectQualifier}donein_feedback_subject(vch_subject, vch_recipient, vch_success_message, int_module, int_author)
+	VALUES (@vch_subject, @vch_recipient, @vch_success_message, @int_module, @int_author)
+
+	SELECT SCOPE_IDENTITY()
+END
+
+-- UPDATE
+IF @int_ID > 0
+BEGIN
+	UPDATE
+		{databaseOwner}{objectQualifier}donein_feedback_subject
+	SET
+		vch_subject = @vch_subject,
+		vch_recipient = @vch_recipient,
+		vch_success_message = @vch_success_message,
+		int_module = @int_module,
+		int_author = @int_author
+	WHERE 
+		ID = @int_ID
+
+	SELECT @int_ID
+END
+
+-- DELETE
+IF @int_ID < 0
+BEGIN
+	DELETE
+	FROM
+		{databaseOwner}{objectQualifier}donein_feedback_subject
+	WHERE
+		ID = (@int_ID * -1)
+END
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+CREATE PROCEDURE {databaseOwner}{objectQualifier}donein_feedback_R
+(
+	@int_ID As Integer,
+	@int_subject As Integer = 0,
+	@int_module As Integer = 0
+)
+AS
+
+IF @int_ID > 0
+BEGIN
+	SELECT 
+		TOP 1 * 
+	FROM
+		{databaseOwner}{objectQualifier}donein_feedback
+	WHERE 
+		ID = @int_ID
+END
+
+ELSE
+BEGIN
+	IF @int_module > 0
+		BEGIN
+			IF @int_subject >= 0
+				BEGIN
+					SELECT 
+						* 
+					FROM
+						{databaseOwner}{objectQualifier}donein_feedback
+					WHERE
+						(int_module = @int_module
+						OR
+						int_module = 0)
+						AND
+						int_subject = @int_subject
+					ORDER BY 
+						date_audit_created DESC
+				END
+			ELSE
+				BEGIN
+					SELECT 
+						* 
+					FROM
+						{databaseOwner}{objectQualifier}donein_feedback
+					WHERE
+						int_module = @int_module
+						OR
+						int_module = 0
+					ORDER BY 
+						date_audit_created DESC
+				END
+		END
+
+	ELSE
+	
+		BEGIN
+			IF @int_subject >= 0
+				BEGIN
+					SELECT 
+						* 
+					FROM
+						{databaseOwner}{objectQualifier}donein_feedback
+					WHERE
+						int_subject = @int_subject
+					ORDER BY 
+						date_audit_created DESC
+				END
+			ELSE
+				BEGIN
+					SELECT 
+						* 
+					FROM
+						{databaseOwner}{objectQualifier}donein_feedback
+					ORDER BY 
+						date_audit_created DESC
+				END
+		END
+END
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+CREATE PROCEDURE {databaseOwner}{objectQualifier}donein_feedback_CUD
+(
+	@int_id INTEGER,
+	@vch_sender VARCHAR(1024) = '',
+	@vch_recipient VARCHAR(1024) = '',
+	@int_subject INTEGER = 0,
+	@vch_subject VARCHAR(1024) = '',
+	@vch_message VARCHAR(1024) = '',
+	@vch_referrer VARCHAR(1024) = '',
+	@int_module INTEGER = 0,
+	@int_author INTEGER = 0
+)
+AS
+
+-- CREATE
+IF @int_ID = 0
+BEGIN
+	INSERT INTO {databaseOwner}{objectQualifier}donein_feedback(vch_sender, vch_recipient, int_subject, vch_subject, vch_message, vch_referrer, int_module, int_author)
+	VALUES (@vch_sender, @vch_recipient, @int_subject, @vch_subject, @vch_message, @vch_referrer, @int_module, @int_author)
+
+	SELECT SCOPE_IDENTITY()
+END
+
+-- UPDATE
+IF @int_ID > 0
+BEGIN
+	UPDATE
+		{databaseOwner}{objectQualifier}donein_feedback
+	SET
+		vch_sender = @vch_sender,
+		vch_recipient = @vch_recipient,
+		int_subject = @int_subject,
+		vch_subject = @vch_subject,
+		vch_message = @vch_message,
+		vch_referrer = @vch_referrer,
+		int_module = @int_module,
+		int_author = @int_author
+	WHERE 
+		ID = @int_ID
+
+	SELECT @int_ID
+END
+
+-- DELETE
+IF @int_ID < 0
+BEGIN
+	DELETE
+	FROM
+		{databaseOwner}{objectQualifier}donein_feedback
+	WHERE
+		ID = (@int_ID * -1)
+END
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+CREATE TRIGGER {databaseOwner}{objectQualifier}donein_feedback_update_trigger ON {databaseOwner}{objectQualifier}donein_feedback
+FOR INSERT, UPDATE, DELETE 
+AS
+UPDATE {databaseOwner}{objectQualifier}donein_feedback
+SET date_audit_modified = GetDate() 
+FROM {databaseOwner}{objectQualifier}donein_feedback
+INNER JOIN inserted ON donein_feedback.ID = Inserted.ID;
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+
+SET QUOTED_IDENTIFIER ON 
+GO
+SET ANSI_NULLS ON 
+GO
+
+CREATE TRIGGER {databaseOwner}{objectQualifier}donein_feedback_subject_update_trigger ON {databaseOwner}{objectQualifier}donein_feedback_subject
+FOR INSERT, UPDATE, DELETE 
+AS
+UPDATE {databaseOwner}{objectQualifier}donein_feedback_subject
+SET date_audit_modified = GetDate() 
+FROM {databaseOwner}{objectQualifier}donein_feedback_subject
+INNER JOIN inserted ON donein_feedback_subject.ID = Inserted.ID;
+
+
+
+
+
+GO
+SET QUOTED_IDENTIFIER OFF 
+GO
+SET ANSI_NULLS ON 
+GO
+

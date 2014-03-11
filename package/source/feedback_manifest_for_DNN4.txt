@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<dotnetnuke version="3.0" type="Module">
+	<folders>
+		<folder>
+			<name>DONEIN_NET\Feedback</name>
+			<description>This DotNetNuke module provides a form for submitting questions, comments, and suggestions.</description>
+			<version>01.06.02</version>
+			<modules>
+				<module>
+					<friendlyname>Feedback Form</friendlyname>
+					<controls>
+						<control>
+							<src>base.ascx</src>
+							<type>View</type>
+						</control>
+						<control>
+							<key>Edit</key>
+							<title>Feedback Options</title>
+							<src>settings.ascx</src>
+							<type>Edit</type>
+						</control>
+						<control>
+							<key>Subject</key>
+							<title>Manage Subjects</title>
+							<src>subject.ascx</src>
+							<type>Edit</type>
+						</control>	
+						<control>
+							<key>Response</key>
+							<title>View Feedback</title>
+							<src>response.ascx</src>
+							<type>Edit</type>
+						</control>						
+					</controls>
+				</module>
+			</modules>
+			<files>
+				<file>
+					<name>base.ascx</name>
+				</file>
+				<file>
+					<name>settings.ascx</name>
+				</file>
+				<file>
+					<name>subject.ascx</name>
+				</file>
+				<file>
+					<name>response.ascx</name>
+				</file>
+				<file>
+					<name>module.css</name>
+				</file>
+				<file>
+					<name>DONEIN.NET.Feedback.dll</name>
+				</file>
+				<file>
+					<name>DONEIN.NET.Module_Info.dll</name>
+				</file>
+				<file>
+					<name>01.00.00.SqlDataProvider</name>
+				</file>
+				<file>
+					<name>01.05.00.SqlDataProvider</name>
+				</file>
+				<file>
+					<name>01.06.00.SqlDataProvider</name>
+				</file>
+				<file>
+					<name>Uninstall.SqlDataProvider</name>
+				</file>
+				<file>
+					<path>App_LocalResources</path>
+					<name>base.ascx.resx</name>					
+				</file>
+				<file>
+					<path>App_LocalResources</path>
+					<name>settings.ascx.resx</name>					
+				</file>
+				<file>
+					<path>App_LocalResources</path>
+					<name>subject.ascx.resx</name>					
+				</file>
+				<file>
+					<path>App_LocalResources</path>
+					<name>response.ascx.resx</name>					
+				</file>
+				<file>
+					<path>scripts</path>
+					<name>feedback.js</name>					
+				</file>
+			</files>
+		</folder>
+	</folders>
+</dotnetnuke>

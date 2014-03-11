@@ -1,0 +1,199 @@
+﻿<dotnetnuke type="Package" version="5.0">
+	<packages>
+		<package name="DONEIN_NET\Feedback" type="Module" version="1.6.2">
+			<friendlyName>DONEIN_NET\Feedback</friendlyName>
+			<description>This DotNetNuke module provides a form for submitting questions, comments, and suggestions.</description>
+			<owner>
+				<name>DONEIN.NET</name>
+				<organization>DONEIN.NET</organization>
+				<url>http://www.donein.net/</url>
+				<email>support@donein.net</email>
+			</owner>
+			<license>
+				<![CDATA[<DIV STYLE="text-align: justify;">
+					Purchase of the Standard Edition of this module grants you the right to install this module for up to two (2) web sites.  
+					The license allows for installation in a three-tier (development, test, and production) environment with no extra cost.
+					<BR />
+					<BR />
+					If you need to install this module on more than two web sites, or if you plan to resell this module, please consider the Enterprise Edition.   
+					Purchase of the Enterprise Edition of this module grants you the right to install this module on an unlimited number of web sites.
+					<BR />
+					<BR />
+					If purchasing the source code for this module, you are allowed to alter the code to meet your requirements.  
+					However, you may not resell the module as your own creation.  
+					<BR />
+					<BR />
+				</DIV>]]>
+			</license>
+			<releaseNotes>
+				<![CDATA[<DIV STYLE="text-align: justify;">
+					<SPAN STYLE="font-weight: bold;">Version 1.6.2</SPAN>
+					<UL>
+						<LI>Added Additional Validation Of Sender Email Address</LI>
+						<LI>Modified Implementation Of <SPAN STYLE="font-style: italic;">Reply-To</SPAN> Headers</LI>
+					</UL>
+					<SPAN STYLE="font-weight: bold;">Version 1.6.0</SPAN>
+					<UL>
+						<LI>Added Option For Capture Of Account Number, Mailing Address, Phone, Fax, And Web URL</LI>
+						<LI>Added Support For More Mail Server Configurations</LI>
+					</UL>
+					<BR />
+					<SPAN STYLE="font-weight: bold;">Version 1.5.0</SPAN>
+					<UL>
+						<LI>Modified Maximum Length Of Recipient Field On <SPAN STYLE="font-style: italic;">Subject Management</SPAN> Page</LI>
+						<LI>Added DNN 5.x Manifest File Implementation</LI>
+					</UL>
+					<BR />
+				</DIV>]]>
+			</releaseNotes>
+			<components>
+				<component type="Script">
+					<scripts>
+						<basePath>DesktopModules\DONEIN_NET\Feedback</basePath>
+						<script type="Install">
+							<name>01.00.00.SqlDataProvider</name>
+							<sourceFileName>01.00.00.SqlDataProvider</sourceFileName>
+							<version>01.00.00</version>
+						</script>
+						<script type="Install">
+							<name>01.05.00.SqlDataProvider</name>
+							<sourceFileName>01.05.00.SqlDataProvider</sourceFileName>
+							<version>01.05.00</version>
+						</script>
+						<script type="Install">
+							<name>01.06.00.SqlDataProvider</name>
+							<sourceFileName>01.06.00.SqlDataProvider</sourceFileName>
+							<version>01.06.00</version>
+						</script>
+						<script type="UnInstall">
+							<name>Uninstall.SqlDataProvider</name>
+							<sourceFileName>Uninstall.SqlDataProvider</sourceFileName>
+							<version>1.4.6</version>
+						</script>
+					</scripts>
+				</component>
+				<component type="Module">
+					<desktopModule>
+						<moduleName>DONEIN_NET\Feedback</moduleName>
+						<foldername>DONEIN_NET\Feedback</foldername>
+						<businessControllerClass />
+						<supportedFeatures />
+						<moduleDefinitions>
+							<moduleDefinition>
+								<friendlyName>Feedback Form</friendlyName>
+								<defaultCacheTime>0</defaultCacheTime>
+								<moduleControls>
+									<moduleControl>
+										<controlKey />
+										<controlSrc>DesktopModules/DONEIN_NET/Feedback/base.ascx</controlSrc>
+										<supportsPartialRendering>False</supportsPartialRendering>
+										<controlTitle />
+										<controlType>View</controlType>
+										<iconFile />
+										<helpUrl />
+										<viewOrder>0</viewOrder>
+									</moduleControl>
+									<moduleControl>
+										<controlKey>Edit</controlKey>
+										<controlSrc>DesktopModules/DONEIN_NET/Feedback/settings.ascx</controlSrc>
+										<supportsPartialRendering>False</supportsPartialRendering>
+										<controlTitle>Feedback Options</controlTitle>
+										<controlType>Edit</controlType>
+										<iconFile />
+										<helpUrl />
+										<viewOrder>0</viewOrder>
+									</moduleControl>
+									<moduleControl>
+										<controlKey>Subject</controlKey>
+										<controlSrc>DesktopModules/DONEIN_NET/Feedback/subject.ascx</controlSrc>
+										<supportsPartialRendering>False</supportsPartialRendering>
+										<controlTitle>Manage Subjects</controlTitle>
+										<controlType>Edit</controlType>
+										<iconFile />
+										<helpUrl />
+										<viewOrder>0</viewOrder>
+									</moduleControl>
+									<moduleControl>
+										<controlKey>Response</controlKey>
+										<controlSrc>DesktopModules/DONEIN_NET/Feedback/response.ascx</controlSrc>
+										<supportsPartialRendering>False</supportsPartialRendering>
+										<controlTitle>View Feedback</controlTitle>
+										<controlType>Edit</controlType>
+										<iconFile />
+										<helpUrl />
+										<viewOrder>0</viewOrder>
+									</moduleControl>
+								</moduleControls>
+							</moduleDefinition>
+						</moduleDefinitions>
+					</desktopModule>
+				</component>
+				<component type="Assembly">
+					<assemblies>
+						<basePath>bin</basePath>
+						<assembly>
+							<path>bin</path>
+							<name>DONEIN.NET.Feedback.dll</name>
+							<sourceFileName>DONEIN.NET.Feedback.dll</sourceFileName>
+						</assembly>
+						<assembly>
+							<path>bin</path>
+							<name>DONEIN.NET.Module_Info.dll</name>
+							<sourceFileName>DONEIN.NET.Module_Info.dll</sourceFileName>
+						</assembly>
+					</assemblies>
+				</component>
+				<component type="File">
+					<files>
+						<basePath>DesktopModules\DONEIN_NET\Feedback</basePath>
+						<file>
+							<name>base.ascx</name>
+							<sourceFileName>base.ascx</sourceFileName>
+						</file>
+						<file>
+							<name>settings.ascx</name>
+							<sourceFileName>settings.ascx</sourceFileName>
+						</file>
+						<file>
+							<name>subject.ascx</name>
+							<sourceFileName>subject.ascx</sourceFileName>
+						</file>
+						<file>
+							<name>response.ascx</name>
+							<sourceFileName>response.ascx</sourceFileName>
+						</file>
+						<file>
+							<name>module.css</name>
+							<sourceFileName>module.css</sourceFileName>
+						</file>
+						<file>
+							<path>App_LocalResources</path>
+							<name>base.ascx.resx</name>
+							<sourceFileName>base.ascx.resx</sourceFileName>
+						</file>
+						<file>
+							<path>App_LocalResources</path>
+							<name>settings.ascx.resx</name>
+							<sourceFileName>settings.ascx.resx</sourceFileName>
+						</file>
+						<file>
+							<path>App_LocalResources</path>
+							<name>subject.ascx.resx</name>
+							<sourceFileName>subject.ascx.resx</sourceFileName>
+						</file>
+						<file>
+							<path>App_LocalResources</path>
+							<name>response.ascx.resx</name>
+							<sourceFileName>response.ascx.resx</sourceFileName>
+						</file>
+						<file>
+							<path>scripts</path>
+							<name>feedback.js</name>
+							<sourceFileName>feedback.js</sourceFileName>
+						</file>
+					</files>
+				</component>
+			</components>
+		</package>
+	</packages>
+</dotnetnuke>

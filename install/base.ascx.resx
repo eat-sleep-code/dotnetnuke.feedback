@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xsd:element name="root" msdata:IsDataSet="true">
+			<xsd:complexType>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="data">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" />
+							<xsd:attribute name="type" type="xsd:string" />
+							<xsd:attribute name="mimetype" type="xsd:string" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="resheader">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" />
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+	<resheader name="ResMimeType">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="Version">
+		<value>1.0.0.0</value>
+	</resheader>
+	<resheader name="Reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=1.0.3300.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="Writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=1.0.3300.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	
+	<data name="pl_sender_name.Text">
+		<value>Name</value>
+	</data>
+	<data name="pl_sender_name.Help">
+		<value>Enter your full name.</value>
+	</data>
+	
+	<data name="pl_sender_email.Text">
+		<value>Email</value>
+	</data>
+	<data name="pl_sender_email.Help">
+		<value>Enter your email address.</value>
+	</data>
+
+	<data name="pl_sender_account_number.Text">
+		<value>Account Number</value>
+	</data>
+	<data name="pl_sender_account_number.Help">
+		<value>Enter your account number.</value>
+	</data>
+
+	<data name="pl_sender_address.Text">
+		<value>Mailing Address</value>
+	</data>
+	<data name="pl_sender_address.Help">
+		<value>Enter your mailing address.</value>
+	</data>
+
+	<data name="pl_sender_address_country.Text">
+		<value>Country</value>
+	</data>
+	<data name="pl_sender_address_country.Help">
+		<value>Select your country.</value>
+	</data>
+
+	<data name="pl_sender_address_street_01.Text">
+		<value>Street</value>
+	</data>
+	<data name="pl_sender_address_street_02.Text">
+		<value>Street (Continued)</value>
+	</data>
+	<data name="pl_sender_address_street_01.Help">
+		<value>Enter your street address.</value>
+	</data>
+
+	<data name="pl_sender_address_city.Text">
+		<value>City</value>
+	</data>
+	<data name="pl_sender_address_city.Help">
+		<value>Enter the name of your city.</value>
+	</data>
+
+	<data name="pl_sender_address_state_province.Text">
+		<value>State / Province</value>
+	</data>
+	<data name="pl_sender_address_state_province.Help">
+		<value>Select your state / province.</value>
+	</data>
+
+	<data name="pl_sender_address_zipcode.Text">
+		<value>Zip Code (Postal Code)</value>
+	</data>
+	<data name="pl_sender_address_zipcode.Help">
+		<value>Enter your Zip Code (Postal Code).</value>
+	</data>
+
+	
+	<data name="pl_sender_phone.Text">
+		<value>Phone</value>
+	</data>
+	<data name="pl_sender_phone.Help">
+		<value>Enter your phone number.</value>
+	</data>
+
+	<data name="pl_sender_fax.Text">
+		<value>Fax</value>
+	</data>
+	<data name="pl_sender_fax.Help">
+		<value>Enter your fax number.</value>
+	</data>
+
+	<data name="pl_sender_url.Text">
+		<value>Web Site URL</value>
+	</data>
+	<data name="pl_sender_url.Help">
+		<value>Enter your web site URL.</value>
+	</data>
+	
+	<data name="pl_subject.Text">
+		<value>Subject</value>
+	</data>
+	<data name="pl_subject.Help">
+		<value>Enter / select a subject for this feedback.</value>
+	</data>
+	
+	<data name="pl_body.Text">
+		<value>Message</value>
+	</data>
+	<data name="pl_body.Help">
+		<value>Enter the body of your message.</value>
+	</data>
+	
+	<data name="pl_send_copy.Text">
+		<value>Send Copy?</value>
+	</data>
+	<data name="pl_send_copy.Help">
+		<value>Check this box if you wish to send a copy of this message to yourself.</value>
+	</data>
+	
+	<data name="pl_captcha.Text">
+		<value></value>
+	</data>
+	<data name="pl_captcha.Help">
+		<value>Enter the code you see in the image.  This helps prevent automated SPAM programs from abusing this form.</value>
+	</data>
+	
+	<data name="alert_message_sent.Text">
+		<value>Your feedback was sent successfully!</value>
+	</data>
+	<data name="alert_verification_failed.Text">
+		<value>The verification code you entered did not match the image that was displayed.</value>
+	</data>
+	<data name="alert_message_exception.Text">
+		<value>An error occurred while attempting to send your feedback.</value>
+	</data>
+	<data name="alert_invalid_email.Text">
+		<value>You must enter a valid email address</value>
+	</data>
+	<data name="alert_sender_required.Text">
+		<value>You must enter your name and email address.</value>
+	</data>
+	<data name="alert_account_number_required.Text">
+		<value>You must enter your account number.</value>
+	</data>
+	<data name="alert_address_country_required.Text">
+		<value>You must select your country.</value>
+	</data>
+	<data name="alert_address_street_required.Text">
+		<value>You must enter your street address.</value>
+	</data>
+	<data name="alert_address_city_required.Text">
+		<value>You must enter the name of your city.</value>
+	</data>
+	<data name="alert_address_state_province_required.Text">
+		<value>You must select your state / province.</value>
+	</data>
+	<data name="alert_address_zipcode_required.Text">
+		<value>You must enter your Zip Code (Postal Code).</value>
+	</data>
+	<data name="alert_phone_required.Text">
+		<value>You must enter your phone number.</value>
+	</data>
+	<data name="alert_fax_required.Text">
+		<value>You must enter your fax number.</value>
+	</data>
+	<data name="alert_url_required.Text">
+		<value>You must enter your web site URL.</value>
+	</data>
+	<data name="alert_subject_required.Text">
+		<value>You must enter a subject.</value>
+	</data>
+	<data name="alert_body_required.Text">
+		<value>You may not send an empty message.</value>
+	</data>
+	
+	<data name="pl_referrer.Text">
+		<value>Referrer: </value>
+	</data>
+	<data name="pl_ip_address.Text">
+		<value>IP Address: </value>
+	</data>
+	
+	<data name="pl_send.Text">
+		<value>Send</value>
+	</data>
+	<data name="pl_cancel.Text">
+		<value>Reset Form</value>
+	</data>
+	
+	<data name="pl_yes.Text">
+		<value>Yes</value>
+	</data>
+	<data name="pl_no.Text">
+		<value>No</value>
+	</data>
+	
+	<data name="pl_action_update.Text">
+		<value>Check For Updates</value>
+	</data>
+	<data name="ContentOptions.Action">
+		<value>Edit Options</value>
+	</data>
+	<data name="pl_action_subject.Text">
+		<value>Manage Subjects</value>
+	</data>
+	<data name="pl_action_response.Text">
+		<value>View Feedback</value>
+	</data>
+	<data name="pl_btn_update.Text">
+		<value>Update</value>
+	</data>
+	<data name="pl_btn_cancel.Text">
+		<value>Cancel</value>
+	</data>
+	<data name="pl_lbl_divider.Text">
+		<value><![CDATA[&nbsp;&nbsp;|&nbsp;&nbsp;]]></value>
+	</data>
+</root>

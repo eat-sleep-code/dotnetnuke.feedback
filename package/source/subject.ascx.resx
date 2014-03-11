@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<root>
+	<xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+		<xsd:element name="root" msdata:IsDataSet="true">
+			<xsd:complexType>
+				<xsd:choice maxOccurs="unbounded">
+					<xsd:element name="data">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+								<xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" />
+							<xsd:attribute name="type" type="xsd:string" />
+							<xsd:attribute name="mimetype" type="xsd:string" />
+						</xsd:complexType>
+					</xsd:element>
+					<xsd:element name="resheader">
+						<xsd:complexType>
+							<xsd:sequence>
+								<xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+							</xsd:sequence>
+							<xsd:attribute name="name" type="xsd:string" use="required" />
+						</xsd:complexType>
+					</xsd:element>
+				</xsd:choice>
+			</xsd:complexType>
+		</xsd:element>
+	</xsd:schema>
+	<resheader name="ResMimeType">
+		<value>text/microsoft-resx</value>
+	</resheader>
+	<resheader name="Version">
+		<value>1.0.0.0</value>
+	</resheader>
+	<resheader name="Reader">
+		<value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	<resheader name="Writer">
+		<value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=1.0.5000.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+	</resheader>
+	
+	<data name="pl_subject.Text">
+		<value>Subject</value>
+	</data>	
+	<data name="pl_subject.Header">
+		<value>Subject</value>
+	</data>
+	<data name="pl_subject.Help">
+		<value>Enter a subject.</value>
+	</data>	
+	
+	<data name="pl_recipient.Text">
+		<value>Subject Recipient</value>
+	</data>	
+	<data name="pl_recipient.Help">
+		<value>Enter the email address(es) for the recipient(s) of feedback for the subject entered above.</value>
+	</data>	
+	
+	<data name="pl_success_message.Text">
+		<value>Success Message</value>
+	</data>	
+	<data name="pl_success_message.Help">
+		<value>Enter a message to be displayed after the user successfully submits feedback.</value>
+	</data>	
+	
+	<data name="pl_feedback_sid.Text">
+		<value>To link to this form with this subject pre-selected use the following URL: </value>
+	</data>
+	
+	<data name="pl_subject_create.Text">
+		<value>Create</value>
+	</data>	
+	<data name="pl_subject_update.Text">
+		<value>Update</value>
+	</data>	
+	<data name="pl_subject_edit.Text">
+		<value>Edit</value>
+	</data>	
+	<data name="pl_subject_delete.Text">
+		<value>Delete</value>
+	</data>	
+	
+	<data name="pl_btn_return.Text">
+		<value>Return</value>
+	</data>
+	<data name="pl_action_update.Text">
+		<value>Check For Updates</value>
+	</data>
+	<data name="ContentOptions.Action">
+		<value>Edit Options</value>
+	</data>
+	<data name="pl_action_subject.Text">
+		<value>Manage Subjects</value>
+	</data>
+	<data name="pl_action_response.Text">
+		<value>View Feedback</value>
+	</data>
+	
+	<data name="pl_btn_create.Text">
+		<value>Add A New Subject</value>
+	</data>	
+	<data name="pl_btn_update.Text">
+		<value>Update</value>
+	</data>
+	<data name="pl_btn_cancel.Text">
+		<value>Cancel</value>
+	</data>
+	
+</root>

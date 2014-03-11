@@ -1,0 +1,31 @@
+﻿if exists (select * from {databaseOwner}{objectQualifier}sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}donein_feedback_update_trigger]') and OBJECTPROPERTY(id, N'IsTrigger') = 1)
+drop trigger {databaseOwner}[{objectQualifier}donein_feedback_update_trigger]
+GO
+
+if exists (select * from {databaseOwner}{objectQualifier}sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}donein_feedback_subject_update_trigger]') and OBJECTPROPERTY(id, N'IsTrigger') = 1)
+drop trigger {databaseOwner}[{objectQualifier}donein_feedback_subject_update_trigger]
+GO
+
+if exists (select * from {databaseOwner}{objectQualifier}sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}donein_feedback_subject_R]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}donein_feedback_subject_R]
+GO
+
+if exists (select * from {databaseOwner}{objectQualifier}sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}donein_feedback_subject_CUD]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}donein_feedback_subject_CUD]
+GO
+
+if exists (select * from {databaseOwner}{objectQualifier}sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}donein_feedback_R]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}donein_feedback_R]
+GO
+
+if exists (select * from {databaseOwner}{objectQualifier}sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}donein_feedback_CUD]') and OBJECTPROPERTY(id, N'IsProcedure') = 1)
+drop procedure {databaseOwner}[{objectQualifier}donein_feedback_CUD]
+GO
+
+if exists (select * from {databaseOwner}{objectQualifier}sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}donein_feedback]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table {databaseOwner}[{objectQualifier}donein_feedback]
+GO
+
+if exists (select * from {databaseOwner}{objectQualifier}sysobjects where id = object_id(N'{databaseOwner}[{objectQualifier}donein_feedback_subject]') and OBJECTPROPERTY(id, N'IsUserTable') = 1)
+drop table {databaseOwner}[{objectQualifier}donein_feedback_subject]
+GO
